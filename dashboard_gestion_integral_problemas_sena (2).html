@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestión Integral de Problemas | SENA - CTA</title>
+<style>
+:root{--sena:#006b3f;--sena2:#008f4c;--lime:#55b948;--dark:#063f2e;--ink:#17352c;--muted:#5d6d67;--bg:#f3f8f5;--white:#fff;--line:#cfe3d9;--gold:#d7a900;--danger:#b42318;--shadow:0 8px 24px rgba(0,64,42,.10)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Calibri,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.5}
+.app{display:grid;grid-template-columns:275px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;overflow:auto;background:linear-gradient(180deg,#064f38,#003b2b);color:#fff;padding:18px 12px}.brand{background:#fff;color:var(--sena);border-radius:14px;padding:16px;text-align:center;margin-bottom:16px;box-shadow:var(--shadow)}.brand .mark{font-weight:900;font-size:30px;letter-spacing:1px}.brand small{display:block;color:var(--dark);font-weight:700;margin-top:4px}.menu{display:flex;flex-direction:column;gap:6px}.menu button{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.04);color:#fff;text-align:left;border-radius:10px;padding:11px 12px;cursor:pointer;font-size:14px;font-weight:700;transition:.2s}.menu button:hover,.menu button.active{background:var(--sena2);transform:translateX(2px)}.menu .num{display:inline-flex;width:25px;height:25px;border-radius:50%;background:#fff;color:var(--sena);align-items:center;justify-content:center;margin-right:8px;font-size:12px}
+.main{min-width:0}.hero{background:linear-gradient(100deg,#fff 0%,#f2fbf7 55%,#e2f4eb 100%);border-bottom:5px solid var(--sena2);padding:28px 34px 22px;position:relative;overflow:hidden}.hero:after{content:"";position:absolute;right:-90px;top:-100px;width:330px;height:330px;border-radius:50%;border:55px solid rgba(0,107,63,.09)}.hero h1{font-size:38px;line-height:1.08;margin:0;color:var(--dark);max-width:900px}.hero p{font-size:17px;margin:10px 0 0;color:#48645b}.tag{display:inline-block;margin-top:14px;background:var(--sena);color:#fff;padding:7px 13px;border-radius:999px;font-size:13px;font-weight:800}.toolbar{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}.toolbar button{border:0;border-radius:9px;padding:10px 13px;font-weight:800;cursor:pointer;background:var(--sena);color:#fff}.toolbar button.secondary{background:#e8f3ee;color:var(--dark);border:1px solid var(--line)}
+.content{padding:25px 30px 55px;max-width:1500px;margin:auto}.section{display:none}.section.active{display:block;animation:fade .2s ease}@keyframes fade{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:18px}.section-head h2{font-size:29px;color:var(--dark);margin:0}.section-head p{margin:3px 0 0;color:var(--muted)}.badge{background:#e1f3e9;color:var(--sena);border:1px solid #bfe0ce;border-radius:999px;padding:6px 10px;font-weight:800;font-size:12px;white-space:nowrap}
+.grid{display:grid;gap:16px}.g2{grid-template-columns:repeat(2,minmax(0,1fr))}.g3{grid-template-columns:repeat(3,minmax(0,1fr))}.g4{grid-template-columns:repeat(4,minmax(0,1fr))}.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow)}.card h3{margin:0 0 8px;color:var(--sena);font-size:18px}.card h4{margin:10px 0 5px;color:var(--dark)}.card p{margin:7px 0}.callout{border-left:6px solid var(--sena2);background:#eaf7f0;padding:16px;border-radius:10px;margin:15px 0}.warn{border-left-color:var(--gold);background:#fff9df}.danger{border-left-color:var(--danger);background:#fff1ef}.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch;margin:18px 0}.flow .step{flex:1 1 160px;background:#fff;border:2px solid #c5dfd1;border-radius:12px;padding:14px;text-align:center;font-weight:800}.arrow{align-self:center;color:var(--sena);font-weight:900;font-size:22px}
+table{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}th,td{border-bottom:1px solid #e3ece8;padding:11px 12px;text-align:left;vertical-align:top;font-size:14px}th{background:#e8f5ee;color:var(--dark);font-size:13px}tr:last-child td{border-bottom:0}.tool-card{position:relative}.tool-num{position:absolute;right:14px;top:14px;background:var(--sena);color:#fff;border-radius:50%;width:30px;height:30px;display:flex;align-items:center;justify-content:center;font-weight:900}.method{margin-top:10px;padding:10px;background:#f4faf7;border-radius:9px}.method ol{margin:6px 0 0;padding-left:21px}.kpi{font-size:28px;font-weight:900;color:var(--sena)}.small{font-size:12px;color:var(--muted)}.quote{font-size:20px;font-style:italic;color:var(--dark);padding:20px;border-radius:12px;background:linear-gradient(135deg,#e9f7ef,#fff)}.checklist label{display:block;padding:8px 0;border-bottom:1px solid #e7eeeb}.checklist input{accent-color:var(--sena);margin-right:8px}.search{width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:9px;font-size:14px;margin-bottom:14px}.footer{background:#003e2d;color:#fff;padding:18px 30px;text-align:center;font-size:13px}.ref a{color:var(--sena);font-weight:700}.matrix td:first-child{font-weight:800;color:var(--dark)}
+@media(max-width:980px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.menu{display:grid;grid-template-columns:repeat(2,1fr)}.hero h1{font-size:30px}.g4,.g3{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:650px){.menu{grid-template-columns:1fr}.g2,.g3,.g4{grid-template-columns:1fr}.content{padding:18px 14px}.hero{padding:22px 18px}.hero h1{font-size:26px}}
+@media print{.sidebar,.toolbar{display:none}.app{display:block}.section{display:block!important;page-break-inside:avoid}.hero{border-bottom:2px solid #000}.card{box-shadow:none}.footer{color:#000;background:#fff;border-top:1px solid #aaa}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <div class="brand"><div class="mark">SENA</div><small>Centro de Tecnologías Agroindustriales — CTA</small></div>
+  <div class="menu" id="menu">
+    <button class="active" data-section="s0"><span class="num">⌂</span>Inicio y propósito</button>
+    <button data-section="s1"><span class="num">1</span>¿Qué es un problema?</button>
+    <button data-section="s2"><span class="num">2</span>Identificación y diagnóstico</button>
+    <button data-section="s3"><span class="num">3</span>10 estrategias de análisis</button>
+    <button data-section="s4"><span class="num">4</span>Metodología para nuevo integrante</button>
+    <button data-section="s5"><span class="num">5</span>Formato de registro</button>
+    <button data-section="s6"><span class="num">6</span>5 estrategias de solución</button>
+    <button data-section="s7"><span class="num">7</span>Estrategias de prevención</button>
+    <button data-section="s8"><span class="num">8</span>Monitoreo y verificación</button>
+    <button data-section="s9"><span class="num">9</span>4 casos de aplicación</button>
+    <button data-section="s10"><span class="num">10</span>Modelo integral D-S-P-M</button>
+    <button data-section="s11"><span class="num">11</span>Matriz de selección</button>
+    <button data-section="s12"><span class="num">12</span>Recomendaciones técnicas</button>
+    <button data-section="s13"><span class="num">13</span>Referentes técnicos</button>
+  </div>
+</aside>
+<main class="main">
+<header class="hero">
+  <h1>Gestión Integral de Problemas, Soluciones, Prevención y Monitoreo</h1>
+  <p><strong>Programa:</strong> Tecnólogo en Sistemas Integrados de Gestión de la Calidad · <strong>Competencia:</strong> Gestión documental y administración de documentos de la organización</p>
+  <span class="tag">APRENDER · APLICAR · VERIFICAR · MEJORAR</span>
+  <div class="toolbar">
+    <button onclick="openDashboard()">Abrir dashboard en nueva ventana</button>
+    <button class="secondary" onclick="window.print()">Imprimir / guardar como PDF</button>
+    <button class="secondary" onclick="downloadHTML()">Descargar HTML</button>
+  </div>
+</header>
+<div class="content">
+
+<section id="s0" class="section active">
+<div class="section-head"><div><h2>Inicio y propósito</h2><p>Material informativo-aplicado para formación tecnológica.</p></div><span class="badge">ENFOQUE EMPRESARIAL E INDUSTRIAL</span></div>
+<div class="grid g2">
+<div class="card"><h3>Propósito formativo</h3><p>Desarrollar la capacidad de <strong>identificar, documentar, analizar, solucionar, prevenir y monitorear</strong> problemas que afectan el desempeño de los procesos y los objetivos de una organización.</p><p>La lógica pedagógica pasa de la observación a la evidencia, de la evidencia a la causa, de la causa a la acción y de la acción a la verificación de eficacia.</p></div>
+<div class="quote">“Un problema de calidad no se gestiona solamente corrigiendo el efecto; se gestiona comprendiendo el sistema que permitió que ocurriera.”</div>
+</div>
+<div class="flow"><div class="step">1. Diagnosticar</div><div class="arrow">→</div><div class="step">2. Analizar</div><div class="arrow">→</div><div class="step">3. Solucionar</div><div class="arrow">→</div><div class="step">4. Prevenir</div><div class="arrow">→</div><div class="step">5. Monitorear</div><div class="arrow">→</div><div class="step">6. Mejorar</div></div>
+<div class="callout"><strong>Nota normativa 2026:</strong> ISO 9001:2026 fue publicada en septiembre de 2026 y sustituyó a ISO 9001:2015. Este dashboard usa el lenguaje general de sistemas de gestión, mejora, desempeño, información documentada y gestión del riesgo, evitando atribuir requisitos específicos no verificados de la nueva edición.</div>
+</section>
+
+<section id="s1" class="section">
+<div class="section-head"><div><h2>1. ¿Qué es un problema?</h2><p>Definición operativa para sistemas de gestión y procesos industriales.</p></div><span class="badge">CONCEPTO + CLASIFICACIÓN</span></div>
+<div class="card"><h3>Definición operativa</h3><p>En contexto empresarial, un <strong>problema</strong> es una situación en la que existe una brecha verificable entre el desempeño esperado y el desempeño real, o una condición que amenaza el cumplimiento de requisitos, objetivos, resultados del proceso o expectativas de las partes interesadas.</p><p>Para gestionarlo técnicamente debe expresarse mediante <strong>hechos, datos, requisito o estándar de referencia, magnitud, ubicación, momento y evidencia</strong>. La descripción “el proceso está mal” no constituye una definición suficiente.</p></div>
+<div class="grid g4" style="margin-top:16px">
+<div class="card"><h3>Desviación</h3><p>Resultado o condición que se aparta de un criterio definido.</p></div><div class="card"><h3>No conformidad</h3><p>Incumplimiento de un requisito. Debe demostrarse contra un criterio aplicable.</p></div><div class="card"><h3>Riesgo</h3><p>Efecto de la incertidumbre sobre objetivos; puede gestionarse antes de que ocurra el evento.</p></div><div class="card"><h3>Oportunidad</h3><p>Condición que puede favorecer mejores resultados, eficiencia o capacidad del sistema.</p></div>
+</div>
+<div class="callout"><strong>Regla profesional:</strong> no confundir <em>síntoma</em> con <em>causa</em>. “Hay documentos vencidos” describe un hallazgo; “no existe control de vigencias con responsable, frecuencia y alerta” es una hipótesis causal que todavía debe verificarse con evidencia.</div>
+</section>
+
+<section id="s2" class="section">
+<div class="section-head"><div><h2>2. Identificación y diagnóstico</h2><p>De la percepción a la evidencia verificable.</p></div><span class="badge">5W2H + DATOS</span></div>
+<div class="grid g2">
+<div class="card"><h3>Ruta de identificación</h3><ol><li>Conocer el proceso, objetivo y criterio de aceptación.</li><li>Observar el proceso real, no solamente el procedimiento escrito.</li><li>Recolectar registros, indicadores, entrevistas y evidencias.</li><li>Cuantificar la brecha: frecuencia, severidad, alcance, costo, tiempo o impacto.</li><li>Precisar dónde, cuándo, cómo y bajo qué condiciones aparece.</li><li>Separar hechos de hipótesis.</li><li>Definir el problema en una frase medible.</li></ol></div>
+<div class="card"><h3>Preguntas de diagnóstico</h3><div class="checklist"><label><input type="checkbox">¿Cuál es el requisito o estándar esperado?</label><label><input type="checkbox">¿Cuál es el desempeño real?</label><label><input type="checkbox">¿Existe evidencia objetiva?</label><label><input type="checkbox">¿El problema es recurrente o aislado?</label><label><input type="checkbox">¿Qué procesos y partes interesadas están afectados?</label><label><input type="checkbox">¿Qué consecuencias genera?</label><label><input type="checkbox">¿Qué controles ya existen y por qué no detectaron/previnieron?</label></div></div>
+</div>
+<div class="callout warn"><strong>Secuencia recomendada:</strong> problema → alcance → datos → causas potenciales → causa(s) verificadas → acción → eficacia. Saltar directamente de “problema” a “solución” favorece acciones cosméticas.</div>
+</section>
+
+<section id="s3" class="section">
+<div class="section-head"><div><h2>3. Diez estrategias de análisis</h2><p>Seleccionar la herramienta según la naturaleza y madurez de la evidencia.</p></div><span class="badge">ANÁLISIS DE CAUSAS Y DATOS</span></div>
+<input class="search" id="toolSearch" placeholder="Filtrar herramientas por nombre o propósito…" oninput="filterTools()">
+<div class="grid g2" id="toolGrid">
+<div class="card tool-card" data-tool="5 porques causa raiz"><span class="tool-num">1</span><h3>5 Porqués</h3><p><strong>Qué hace:</strong> profundiza mediante preguntas sucesivas de “por qué” hasta llegar a una causa que pueda ser controlada y demostrada.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina el efecto con datos.</li><li>Pregunte por qué ocurrió.</li><li>Valide la respuesta con evidencia.</li><li>Repita hasta alcanzar una causa controlable.</li><li>Compruebe que eliminarla reduzca el problema.</li></ol></div></div>
+<div class="card tool-card" data-tool="ishikawa causa efecto espina pescado"><span class="tool-num">2</span><h3>Ishikawa / causa-efecto</h3><p><strong>Qué hace:</strong> organiza causas potenciales por categorías para explorar relaciones entre el efecto y el sistema de trabajo.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina el efecto.</li><li>Construya categorías pertinentes.</li><li>Genere causas sin convertirlas en hechos.</li><li>Recoja evidencia para confirmar/refutar.</li><li>Priorice causas verificadas.</li></ol></div></div>
+<div class="card tool-card" data-tool="pareto 80 20 prioridades frecuencia costos"><span class="tool-num">3</span><h3>Pareto</h3><p><strong>Qué hace:</strong> ordena categorías por magnitud para identificar concentraciones de ocurrencias, costos, defectos o reclamaciones.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina periodo y población.</li><li>Clasifique los eventos.</li><li>Ordene de mayor a menor.</li><li>Calcule acumulado.</li><li>Enfoque el análisis en las categorías de mayor contribución.</li></ol></div></div>
+<div class="card tool-card" data-tool="sipoc proveedores entradas proceso salidas clientes"><span class="tool-num">4</span><h3>SIPOC</h3><p><strong>Qué hace:</strong> ofrece una visión de alto nivel de proveedores, entradas, proceso, salidas y clientes.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina el proceso y sus límites.</li><li>Liste salidas y clientes.</li><li>Identifique etapas críticas.</li><li>Determine entradas y proveedores.</li><li>Relacione fallas con puntos del flujo.</li></ol></div></div>
+<div class="card tool-card" data-tool="fmea amef riesgo modo falla"><span class="tool-num">5</span><h3>FMEA / AMEF</h3><p><strong>Qué hace:</strong> analiza modos potenciales de falla, efectos, causas y controles para tratar riesgos de manera proactiva.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina proceso/producto.</li><li>Identifique modos de falla y efectos.</li><li>Analice causas y controles.</li><li>Evalúe prioridades según el método adoptado.</li><li>Asigne acciones y reevalúe el riesgo.</li></ol></div></div>
+<div class="card tool-card" data-tool="mapeo procesos flujo diagrama"><span class="tool-num">6</span><h3>Mapa / diagrama de proceso</h3><p><strong>Qué hace:</strong> hace visible la secuencia, decisiones, transferencias y puntos de control.</p><div class="method"><strong>Metodología:</strong><ol><li>Observe el proceso real.</li><li>Documente entradas, actividades y salidas.</li><li>Marque esperas, retrabajos y controles.</li><li>Compare práctica vs. procedimiento.</li><li>Identifique puntos de falla y control.</li></ol></div></div>
+<div class="card tool-card" data-tool="hoja verificacion estratificacion datos"><span class="tool-num">7</span><h3>Hoja de verificación + estratificación</h3><p><strong>Qué hace:</strong> convierte observaciones en datos estructurados y permite separar resultados por turno, línea, producto, proveedor, máquina, persona o condición.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina variables y categorías.</li><li>Diseñe formato simple y consistente.</li><li>Recoja datos en el punto de ocurrencia.</li><li>Estratifique por variables relevantes.</li><li>Compare patrones.</li></ol></div></div>
+<div class="card tool-card" data-tool="grafico control shewhart estabilidad estadistica"><span class="tool-num">8</span><h3>Gráficos de control</h3><p><strong>Qué hace:</strong> ayuda a distinguir variación común de señales asociadas a causas especiales en procesos medidos.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina característica y frecuencia.</li><li>Recoja una serie temporal.</li><li>Seleccione gráfico apropiado.</li><li>Establezca límites y reglas de interpretación.</li><li>Investigue señales especiales y actúe.</li></ol></div></div>
+<div class="card tool-card" data-tool="dispersion correlacion relaciones variables"><span class="tool-num">9</span><h3>Diagrama de dispersión</h3><p><strong>Qué hace:</strong> explora la relación entre dos variables; no demuestra por sí solo causalidad.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina X e Y.</li><li>Recoja pares de datos comparables.</li><li>Grafique.</li><li>Observe patrones, agrupaciones y valores atípicos.</li><li>Confirme causalidad mediante diseño y evidencia adicional.</li></ol></div></div>
+<div class="card tool-card" data-tool="arbol fallas fault tree analisis"><span class="tool-num">10</span><h3>Árbol de fallas (FTA)</h3><p><strong>Qué hace:</strong> parte de un evento superior no deseado y descompone lógicamente combinaciones de causas que pueden producirlo.</p><div class="method"><strong>Metodología:</strong><ol><li>Defina el evento superior.</li><li>Descomponga causas con lógica AND/OR.</li><li>Avance hasta eventos básicos.</li><li>Compruebe coherencia causal.</li><li>Priorice controles sobre eventos críticos.</li></ol></div></div>
+</div>
+<div class="callout"><strong>Criterio de selección:</strong> use herramientas cualitativas para estructurar hipótesis y herramientas cuantitativas para verificar patrones, magnitud y estabilidad. La herramienta nunca sustituye el juicio técnico ni la evidencia.</div>
+</section>
+
+<section id="s4" class="section">
+<div class="section-head"><div><h2>4. Metodología para un nuevo integrante</h2><p>Ruta de incorporación orientada a observar antes de intervenir.</p></div><span class="badge">0–30 DÍAS ADAPTABLE</span></div>
+<div class="flow"><div class="step"><strong>Fase 1</strong><br>Conocer contexto y objetivos</div><div class="arrow">→</div><div class="step"><strong>Fase 2</strong><br>Observar y documentar</div><div class="arrow">→</div><div class="step"><strong>Fase 3</strong><br>Contrastar requisitos</div><div class="arrow">→</div><div class="step"><strong>Fase 4</strong><br>Priorizar problemas</div><div class="arrow">→</div><div class="step"><strong>Fase 5</strong><br>Proponer análisis</div></div>
+<div class="grid g3">
+<div class="card"><h3>Fase 1 — Inmersión</h3><p>Recibir mapa de procesos, objetivos, indicadores, requisitos aplicables, procedimientos, registros, estructura documental, riesgos conocidos y responsables.</p></div>
+<div class="card"><h3>Fase 2 — Gemba documental</h3><p>Observar el trabajo donde ocurre. Comparar “lo que dice el documento” con “lo que realmente se hace”. Registrar evidencia sin prejuzgar.</p></div>
+<div class="card"><h3>Fase 3 — Contraste</h3><p>Relacionar hallazgos con requisitos internos, legales, contractuales, técnicos y de cliente. Clasificar hallazgo, riesgo, desviación u oportunidad.</p></div>
+<div class="card"><h3>Fase 4 — Priorización</h3><p>Considerar impacto, recurrencia, detectabilidad, urgencia, riesgo, alcance y recursos. No todo hallazgo requiere la misma metodología.</p></div>
+<div class="card"><h3>Fase 5 — Plan de análisis</h3><p>Elegir la herramienta según el tipo de problema. Definir responsable, datos necesarios, fecha de análisis y criterio de cierre.</p></div>
+<div class="card"><h3>Producto de incorporación</h3><p>Un <strong>diagnóstico inicial trazable</strong>: problemas observados, evidencia, riesgo, procesos afectados, causas por verificar y recomendaciones de análisis.</p></div>
+</div>
+</section>
+
+<section id="s5" class="section">
+<div class="section-head"><div><h2>5. Formato de registro de problemas</h2><p>Plantilla mínima para documentar de manera clara, objetiva y trazable.</p></div><span class="badge">INFORMACIÓN DOCUMENTADA</span></div>
+<table><thead><tr><th>Campo</th><th>Qué registrar</th><th>Pregunta guía</th></tr></thead><tbody>
+<tr><td>ID / fecha</td><td>Código único, fecha y hora</td><td>¿Cómo se rastrea el caso?</td></tr>
+<tr><td>Proceso / área</td><td>Proceso, subproceso, actividad y responsable</td><td>¿Dónde ocurre?</td></tr>
+<tr><td>Problema</td><td>Descripción concreta, medible y sin culpar personas</td><td>¿Qué está ocurriendo?</td></tr>
+<tr><td>Requisito / estándar</td><td>Criterio esperado</td><td>¿Contra qué se compara?</td></tr>
+<tr><td>Evidencia</td><td>Registros, datos, fotografías, entrevistas, auditorías, indicadores</td><td>¿Cómo lo demostramos?</td></tr>
+<tr><td>Magnitud</td><td>Frecuencia, porcentaje, costo, tiempo, unidades afectadas</td><td>¿Cuánto afecta?</td></tr>
+<tr><td>Impacto</td><td>Cliente, calidad, seguridad, ambiente, costo, plazo, cumplimiento</td><td>¿Qué consecuencia genera?</td></tr>
+<tr><td>Causas por verificar</td><td>Hipótesis diferenciadas de causas confirmadas</td><td>¿Por qué podría ocurrir?</td></tr>
+<tr><td>Acción inmediata</td><td>Contención cuando aplique</td><td>¿Cómo controlamos el efecto ahora?</td></tr>
+<tr><td>Método seleccionado</td><td>5 Porqués, Ishikawa, Pareto, FMEA, 8D, etc.</td><td>¿Qué herramienta corresponde?</td></tr>
+<tr><td>Responsable / plazo</td><td>Dueño de la acción y fecha</td><td>¿Quién hará qué y cuándo?</td></tr>
+<tr><td>Verificación de eficacia</td><td>Indicador y evidencia posterior</td><td>¿Cómo sabemos que funcionó?</td></tr>
+</tbody></table>
+<div class="callout"><strong>Principio documental:</strong> un registro útil permite reconstruir la historia del problema sin depender de la memoria de una persona. Debe facilitar trazabilidad, análisis, decisión y evidencia de cierre.</div>
+</section>
+
+<section id="s6" class="section">
+<div class="section-head"><div><h2>6. Cinco estrategias de solución</h2><p>Seleccionar la metodología según complejidad, criticidad, datos y necesidad de disciplina.</p></div><span class="badge">CORRECCIÓN + CAUSA + EFICACIA</span></div>
+<div class="grid g2">
+<div class="card"><h3>1. PDCA — Planificar, Hacer, Verificar, Actuar</h3><p>Modelo iterativo para cambios y mejora continua. Permite planear una intervención, probarla, estudiar resultados y estandarizar o ajustar.</p><div class="method"><strong>Aplicación:</strong> definir brecha → analizar → plan de acción → piloto/implementación → medir → comparar con objetivo → estandarizar o reiniciar ciclo.</div></div>
+<div class="card"><h3>2. 8D — Ocho disciplinas</h3><p>Enfoque estructurado para problemas significativos o recurrentes. Integra equipo, definición cuantificable, contención, causa raíz, corrección permanente, validación y prevención.</p><div class="method"><strong>Aplicación:</strong> D0 planificar → D1 equipo → D2 problema → D3 contención → D4 causa → D5 corrección → D6 implementación/validación → D7 prevención → D8 cierre y reconocimiento.</div></div>
+<div class="card"><h3>3. DMAIC — Definir, Medir, Analizar, Mejorar, Controlar</h3><p>Metodología Six Sigma orientada a problemas de desempeño donde la medición y el análisis estadístico son relevantes.</p><div class="method"><strong>Aplicación:</strong> CTQ/objetivo → línea base → análisis de variación/causas → solución validada → plan de control y seguimiento.</div></div>
+<div class="card"><h3>4. A3</h3><p>Formato de pensamiento estructurado que concentra problema, situación actual, análisis, acciones, resultados y seguimiento en una narrativa visual.</p><div class="method"><strong>Aplicación:</strong> contexto → problema → situación actual → objetivo → análisis → contramedidas → plan → seguimiento. Útil para aprendizaje organizacional.</div></div>
+<div class="card"><h3>5. CAPA — Acción correctiva y preventiva</h3><p>Sistema para gestionar no conformidades, investigar causas, implementar acciones y verificar su eficacia, incorporando prevención de recurrencia o de problemas similares.</p><div class="method"><strong>Aplicación:</strong> registrar → evaluar → contener → investigar causa → definir acción → aprobar → implementar → verificar eficacia → cerrar → compartir aprendizaje.</div></div>
+</div>
+<div class="callout"><strong>Regla:</strong> la corrección elimina o controla el efecto inmediato; la acción correctiva actúa sobre la causa de una no conformidad para evitar su recurrencia; la prevención debe gestionar riesgos y controles antes de que aparezca el problema.</div>
+</section>
+
+<section id="s7" class="section">
+<div class="section-head"><div><h2>7. Estrategias de prevención</h2><p>Diseñar controles para que el error sea menos probable, detectable o repetible.</p></div><span class="badge">PROACTIVIDAD</span></div>
+<div class="grid g3">
+<div class="card"><h3>FMEA / AMEF</h3><p>Anticipar modos de falla y definir controles antes de que generen efectos.</p></div><div class="card"><h3>Poka-yoke</h3><p>Diseñar el proceso para impedir el error o hacerlo evidente en el punto de ocurrencia.</p></div><div class="card"><h3>Estandarización</h3><p>Definir método, secuencia, criterios y responsabilidades de ejecución.</p></div><div class="card"><h3>SPC / control estadístico</h3><p>Vigilar comportamiento del proceso y detectar señales antes de la salida no conforme.</p></div><div class="card"><h3>Auditorías de proceso</h3><p>Verificar sistemáticamente la implementación y eficacia de controles.</p></div><div class="card"><h3>Competencia y formación</h3><p>Relacionar brechas de desempeño con competencias requeridas y evidencia de eficacia formativa.</p></div><div class="card"><h3>Gestión del cambio</h3><p>Evaluar efectos de cambios en personas, equipos, métodos, documentos, proveedores y tecnología.</p></div><div class="card"><h3>Lecciones aprendidas</h3><p>Convertir problemas resueltos en conocimiento reutilizable para procesos similares.</p></div><div class="card"><h3>Mantenimiento preventivo</h3><p>Gestionar condiciones de equipos que puedan afectar disponibilidad, calidad o seguridad.</p></div></div>
+<div class="callout"><strong>Prevención madura:</strong> no consiste en llenar formatos. Consiste en modificar condiciones del sistema para reducir la probabilidad o impacto de la falla y después demostrar que el control funciona.</div>
+</section>
+
+<section id="s8" class="section">
+<div class="section-head"><div><h2>8. Monitoreo y verificación</h2><p>La acción no se cierra cuando se ejecuta; se cierra cuando se demuestra su eficacia.</p></div><span class="badge">MEDIR · ANALIZAR · VERIFICAR</span></div>
+<div class="grid g4"><div class="card"><div class="kpi">01</div><h3>Indicador</h3><p>Defina qué resultado demuestra mejora.</p></div><div class="card"><div class="kpi">02</div><h3>Línea base</h3><p>Conozca el desempeño antes de intervenir.</p></div><div class="card"><div class="kpi">03</div><h3>Meta</h3><p>Establezca criterio cuantitativo o verificable.</p></div><div class="card"><div class="kpi">04</div><h3>Eficacia</h3><p>Compare después de la implementación.</p></div></div>
+<table style="margin-top:16px"><thead><tr><th>Tipo de monitoreo</th><th>Ejemplos</th><th>Pregunta de control</th></tr></thead><tbody><tr><td>Operacional</td><td>Defectos, reprocesos, tiempos, cumplimiento de especificaciones</td><td>¿El proceso está bajo control?</td></tr><tr><td>Documental</td><td>Vigencias, versiones, registros completos, trazabilidad</td><td>¿La información está disponible, vigente y controlada?</td></tr><tr><td>Auditoría</td><td>Auditorías internas, de proceso, proveedores</td><td>¿El sistema se implementa como fue planificado?</td></tr><tr><td>Riesgo</td><td>Indicadores de riesgo, eventos, controles, FMEA</td><td>¿Los controles están reduciendo exposición?</td></tr><tr><td>Eficacia</td><td>Recurrencia, tendencia, impacto, cumplimiento sostenido</td><td>¿La solución produjo el resultado previsto?</td></tr></tbody></table>
+</section>
+
+<section id="s9" class="section">
+<div class="section-head"><div><h2>9. Cuatro casos de aplicación</h2><p>Escenarios diseñados para formación de tecnólogos.</p></div><span class="badge">CASOS APLICADOS</span></div>
+<div class="grid g2">
+<div class="card"><h3>Caso 1 — El nuevo integrante diagnostica</h3><p><strong>Situación:</strong> llega a una empresa de alimentos y no recibe una lista de problemas. Observa el proceso documental y encuentra versiones diferentes de un procedimiento en producción y calidad.</p><p><strong>Ruta:</strong> SIPOC/mapa → contraste documento-práctica → registro del hallazgo → evidencia de versiones → análisis de causa con 5 Porqués → acción sobre control de cambios y distribución → verificación de versiones vigentes.</p><p><strong>Aprendizaje:</strong> el nuevo integrante no “corrige por intuición”; primero construye evidencia y trazabilidad.</p></div>
+<div class="card"><h3>Caso 2 — La empresa entrega los errores</h3><p><strong>Situación:</strong> recibe una matriz con reclamaciones repetitivas, devoluciones y registros incompletos.</p><p><strong>Ruta:</strong> validar población → Pareto → estratificar por producto/turno → Ishikawa → 5 Porqués → 8D para el problema crítico → acción correctiva → verificación de eficacia.</p><p><strong>Aprendizaje:</strong> cuando el problema ya está definido, el valor profesional está en validar datos y demostrar causa y eficacia.</p></div>
+<div class="card"><h3>Caso 3 — Prevención antes del error</h3><p><strong>Situación:</strong> se va a implementar una nueva línea de empaque.</p><p><strong>Ruta:</strong> SIPOC → FMEA → identificar modos de falla → diseñar poka-yoke/controles → capacitación → prueba piloto → criterios de aceptación → monitoreo estadístico.</p><p><strong>Aprendizaje:</strong> la gestión de calidad debe intervenir antes de que el defecto llegue al cliente.</p></div>
+<div class="card"><h3>Caso 4 — Problema emergente con impacto transversal</h3><p><strong>Situación:</strong> un indicador muestra aumento de retrabajo sin causa evidente y afecta producción, calidad y costos.</p><p><strong>Ruta:</strong> definir el problema → línea base → Pareto y estratificación → gráfico de control → Ishikawa → confirmar causa con datos → PDCA/DMAIC → estandarizar → monitorear tendencia.</p><p><strong>Aprendizaje:</strong> el método cambia según la incertidumbre, magnitud y disponibilidad de datos.</p></div>
+</div>
+</section>
+
+<section id="s10" class="section">
+<div class="section-head"><div><h2>10. Modelo integral D-S-P-M</h2><p>Modelo pedagógico propuesto para integrar diagnóstico, solución, prevención y monitoreo.</p></div><span class="badge">MODELO PROPUESTO</span></div>
+<div class="grid g4"><div class="card"><h3>D — Diagnóstico</h3><p>Identificar brecha, requisito, evidencia, alcance, impacto y causas por verificar.</p></div><div class="card"><h3>S — Solución</h3><p>Contener, analizar causa, implementar acción correctiva y validar resultados.</p></div><div class="card"><h3>P — Prevención</h3><p>Rediseñar controles, estandarizar, anticipar riesgos y evitar recurrencia o problemas similares.</p></div><div class="card"><h3>M — Monitoreo</h3><p>Medir desempeño, verificar eficacia, auditar y retroalimentar el sistema.</p></div></div>
+<div class="flow"><div class="step">D<br><small>¿Qué ocurre?</small></div><div class="arrow">→</div><div class="step">S<br><small>¿Por qué ocurre y qué hacemos?</small></div><div class="arrow">→</div><div class="step">P<br><small>¿Cómo evitamos que vuelva a ocurrir?</small></div><div class="arrow">→</div><div class="step">M<br><small>¿Cómo demostramos eficacia?</small></div><div class="arrow">↺</div></div>
+<div class="callout"><strong>Nota metodológica:</strong> D-S-P-M es una arquitectura didáctica desarrollada para este material; no se presenta como una norma ISO ni como una metodología propietaria de ISO.</div>
+</section>
+
+<section id="s11" class="section">
+<div class="section-head"><div><h2>11. Matriz de selección de herramientas</h2><p>Orientación para decidir qué aplicar según la situación.</p></div><span class="badge">DECISIÓN METODOLÓGICA</span></div>
+<table class="matrix"><thead><tr><th>Situación</th><th>Herramientas sugeridas</th><th>Propósito</th></tr></thead><tbody>
+<tr><td>Problema poco definido</td><td>5W2H, SIPOC, mapa de proceso</td><td>Delimitar y comprender el sistema.</td></tr>
+<tr><td>Muchas causas potenciales</td><td>Ishikawa + 5 Porqués</td><td>Generar y profundizar hipótesis causales.</td></tr>
+<tr><td>Muchos datos/categorías</td><td>Pareto + estratificación</td><td>Priorizar y localizar concentraciones.</td></tr>
+<tr><td>Problema recurrente/crítico</td><td>8D + FMEA</td><td>Resolver y prevenir recurrencia/similares.</td></tr>
+<tr><td>Proceso variable</td><td>Gráficos de control</td><td>Detectar señales y estabilidad.</td></tr>
+<tr><td>Riesgo antes de implementar</td><td>FMEA + poka-yoke</td><td>Prevenir fallas y fortalecer controles.</td></tr>
+<tr><td>Problema de desempeño con datos</td><td>DMAIC</td><td>Definir, medir, analizar, mejorar y controlar.</td></tr>
+<tr><td>Problema que requiere comunicación ejecutiva</td><td>A3</td><td>Integrar evidencia, análisis y plan en formato visual.</td></tr>
+</tbody></table>
+</section>
+
+<section id="s12" class="section">
+<div class="section-head"><div><h2>12. Recomendaciones técnicas y mejora del prompt</h2><p>Diseño desde la perspectiva de un profesional de sistemas integrados de gestión.</p></div><span class="badge">CALIDAD DEL DISEÑO</span></div>
+<div class="grid g2">
+<div class="card"><h3>Recomendaciones técnicas</h3><ol><li>Definir primero el criterio de referencia y después describir la desviación.</li><li>Separar claramente corrección, acción correctiva, prevención y mejora.</li><li>No aceptar causas sin evidencia o verificación.</li><li>Vincular cada problema a proceso, requisito, riesgo, indicador y responsable.</li><li>Incorporar criterios de severidad, recurrencia, alcance y detectabilidad para priorización.</li><li>Controlar versiones, responsables y evidencias del documento.</li><li>Medir eficacia después de un periodo apropiado, no inmediatamente después de ejecutar la acción.</li><li>Convertir soluciones exitosas en estándares y lecciones aprendidas.</li></ol></div>
+<div class="card"><h3>Evaluación del prompt original</h3><p><strong>Fortalezas:</strong> define población, competencia, contexto industrial, producto digital, estructura de contenidos, ejemplos, referencias y necesidad de interacción.</p><p><strong>Oportunidades de mejora:</strong> separar requisitos pedagógicos de requisitos funcionales; definir entregables mínimos; establecer criterios de calidad; distinguir herramientas de análisis, solución, prevención y monitoreo; exigir trazabilidad bibliográfica; y definir que el dashboard debe ser autocontenido.</p><h4>Prompt técnico mejorado</h4><p>“Diseña un recurso interactivo HTML para tecnólogos en Sistemas Integrados de Gestión de la Calidad, competencia Gestión documental y administración de documentos de la organización. Integra definición operacional de problema, identificación basada en evidencia, diez herramientas de análisis con metodología de aplicación, procedimiento para incorporación de un nuevo integrante, formato de registro, cinco metodologías de solución, estrategias preventivas, monitoreo y verificación de eficacia, cuatro casos aplicados, matriz de selección, recomendaciones técnicas y referentes reales. Usa lenguaje técnico, ejemplos industriales, trazabilidad documental y referencias verificables. Implementa menú lateral, navegación por secciones, filtros, impresión y apertura en nueva ventana. Usa estética institucional SENA verde/blanco, diseño responsive y código HTML autocontenido.”</p></div>
+</div>
+</section>
+
+<section id="s13" class="section">
+<div class="section-head"><div><h2>13. Referentes técnicos y bibliografía sugerida</h2><p>Fuentes reales consultadas para sustentar la arquitectura del material.</p></div><span class="badge">REFERENCIAS VERIFICABLES</span></div>
+<div class="grid g2">
+<div class="card ref"><h3>Normas y organismos</h3><p><strong>ISO.</strong> <em>ISO 9001:2026 — Quality management systems — Requirements.</em> Publicada septiembre de 2026. <a href="https://www.iso.org/standard/9001" target="_blank" rel="noopener">ISO 9001:2026</a></p><p><strong>ISO.</strong> <em>ISO 31000:2018 — Risk management — Guidelines.</em> Marco para identificar, analizar, evaluar, tratar, monitorear y comunicar riesgos. <a href="https://www.iso.org/standard/65694.html" target="_blank" rel="noopener">ISO 31000:2018</a></p><p><strong>ISO.</strong> <em>ISO 19011:2026 — Guidelines for auditing management systems.</em> Publicada en mayo de 2026. <a href="https://www.iso.org/standard/19011" target="_blank" rel="noopener">ISO 19011:2026</a></p><p><strong>ISO.</strong> <em>Guidance on documented information for ISO 9001:2015.</em> Referente útil para entender información documentada y ejemplos de documentos que agregan valor. <a href="https://www.iso.org/files/live/sites/isoorg/files/standards/docs/en/iso_9001_2015_guidance_documented_information.pdf" target="_blank" rel="noopener">Documento ISO</a></p></div>
+<div class="card ref"><h3>Calidad y solución de problemas</h3><p><strong>ASQ.</strong> <em>Quality Tools & Templates.</em> Repertorio de Ishikawa, FMEA, 8D, Pareto, control chart, auditoría y otras herramientas. <a href="https://asq.org/quality-resources/quality-tools" target="_blank" rel="noopener">ASQ Quality Tools</a></p><p><strong>ASQ.</strong> <em>Failure Mode and Effects Analysis (FMEA).</em> Descripción y aplicación del análisis de modos de falla y efectos. <a href="https://asq.org/quality-resources/fmea" target="_blank" rel="noopener">ASQ FMEA</a></p><p><strong>ASQ.</strong> <em>Eight Disciplines (8D).</em> Estructura D0–D8 para resolución y prevención de problemas. <a href="https://asq.org/quality-resources/eight-disciplines-8d" target="_blank" rel="noopener">ASQ 8D</a></p><p><strong>ASQ.</strong> <em>PDCA Cycle.</em> Ciclo para desarrollar, probar, estudiar y ajustar mejoras. <a href="https://asq.org/quality-resources/pdca-cycle" target="_blank" rel="noopener">ASQ PDCA</a></p><p><strong>Benbow, D. & Zarghami, A.</strong> <em>Introduction to 8D Problem Solving: Including Practical Applications and Examples.</em> ASQ Quality Press, 2017.</p></div>
+</div>
+<div class="callout warn"><strong>Actualización normativa importante:</strong> al elaborar este dashboard, ISO 9001:2026 e ISO 19011:2026 ya aparecen como ediciones publicadas en los registros oficiales de ISO. Por tanto, para una implementación institucional se debe adquirir/consultar el texto oficial vigente y verificar los requisitos exactos antes de convertir este material en procedimiento obligatorio o criterio de auditoría.</div>
+</section>
+
+</div>
+<footer class="footer">SENA · Centro de Tecnologías Agroindustriales CTA · Recurso formativo interactivo · Gestión documental y administración de documentos de la organización</footer>
+</main></div>
+<script>
+const buttons=[...document.querySelectorAll('#menu button')];const sections=[...document.querySelectorAll('.section')];
+function showSection(id){buttons.forEach(b=>b.classList.toggle('active',b.dataset.section===id));sections.forEach(s=>s.classList.toggle('active',s.id===id));window.scrollTo({top:0,behavior:'smooth'});history.replaceState(null,'','#'+id)}
+buttons.forEach(b=>b.addEventListener('click',()=>showSection(b.dataset.section)));
+function filterTools(){const q=document.getElementById('toolSearch').value.toLowerCase();document.querySelectorAll('#toolGrid .tool-card').forEach(c=>c.style.display=c.dataset.tool.includes(q)?'block':'none')}
+function openDashboard(){const w=window.open('','_blank');if(!w){alert('El navegador bloqueó la nueva ventana. Usa el botón Descargar HTML y ábrelo manualmente.');return;}w.document.open();w.document.write('<!DOCTYPE html>'+document.documentElement.outerHTML);w.document.close();}
+function downloadHTML(){const html='<!DOCTYPE html>\n'+document.documentElement.outerHTML;const blob=new Blob([html],{type:'text/html;charset=utf-8'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='dashboard_gestion_integral_problemas_sena.html';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),1000)}
+if(location.hash && document.getElementById(location.hash.substring(1))) showSection(location.hash.substring(1));
+</script>
+</body></html>
